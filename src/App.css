@@ -1,56 +1,65 @@
 .App {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
-
 nav {
-  background-color: black;
-  width: 100%;
-  display: flex;
-  color: white;
-  padding: 20px;
-  font-weight: 600;
-  font-size: 20px;
+	background-color: black;
+	width: 100%;
+	display: flex;
+	color: white;
+	padding: 20px;
+	font-weight: 600;
+	font-size: 20px;
 }
 .content-wrapper {
 }
 .content-wrapper .content {
-  text-align: left;
-  padding: 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  list-style: none;
+	text-align: left;
+	padding: 20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	list-style: none;
 }
 .content-wrapper .content h4 {
-  display: flex;
-  align-items: center;
-  width: 300px;
-  justify-content: space-between;
+	display: flex;
+	align-items: center;
+	width: 300px;
+	justify-content: space-between;
+	cursor: pointer;
+}
+.content-wrapper .content h4:hover {
+	color: red;
 }
 .content-wrapper .content p {
-  color: rgba(0, 0, 0, 0.466);
+	color: rgba(0, 0, 0, 0.466);
 }
 .content-wrapper .content button {
-  background: none;
-  outline: none;
-  border: none;
-  font-size: 15px;
-  cursor: pointer;
+	background: none;
+	outline: none;
+	border: none;
+	font-size: 15px;
+	cursor: pointer;
 }
 .content-wrapper .content button:hover {
-  transform: scale(1.2);
+	transform: scale(1.2);
 }
 .sortBtn {
-  background-color: tomato;
-  outline: none;
-  border: none;
-  border-radius: 10px;
-  padding: 10px;
-  margin-top: 10px;
-  cursor: pointer;
+	background-color: tomato;
+	outline: none;
+	border: none;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 10px;
+	cursor: pointer;
 }
 .sortBtn:hover {
-  transform: scale(0.95);
-  color: antiquewhite;
+	transform: scale(0.95);
+	color: antiquewhite;
+}
+.detail {
+	background-color: rgba(255, 0, 0, 0.315);
+	position: relative;
+	top: 10px;
+	transition: position 2s ease-in-out;
 }
