@@ -75,6 +75,34 @@ const News = ({ data, index }) => {
 	);
 };
 
+const Form = ({ makeNews }) => {
+	const [value, setValue] = React.useState("");
+	const handleInput = (e) => {
+		setValue(e.target.value);
+	};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (value === "") {
+			return;
+		}
+		makeNews(value);
+		setValue("");
+	};
+	return (
+		<div>
+			<form action="" onSubmit={handleSubmit}>
+				<input
+					type="text"
+					placeholder="Write a title"
+					onChange={handleInput}
+					value={value}
+				/>
+				<button>Add a News</button>
+			</form>
+		</div>
+	);
+};
+
 function App() {
 	const [datas, setDatas] = React.useState(apiData);
 	const [sortState, setSortState] = React.useState(false);
@@ -86,6 +114,9 @@ function App() {
 		}
 		setSortState((prev) => !prev);
 	};
+	const makeNews = (value) => {
+		setDatas((prev) => [...prev, { title: value, date: "Feb 11, 2022" }]);
+	};
 
 	return (
 		<div className="App">
@@ -93,6 +124,9 @@ function App() {
 				<img src={logo} style={{ width: "20px" }} alt="" />
 				<span>Today's News Ranking</span>
 			</nav>
+			<button className="sortBtn" onClick={handleSort}>
+				Sort by Title
+			</button>
 			<div>
 				<ul className="content-wrapper">
 					{datas.map((data, index) => (
@@ -100,9 +134,8 @@ function App() {
 					))}
 				</ul>
 			</div>
-			<button className="sortBtn" onClick={handleSort}>
-				Sort by Title
-			</button>
+
+			<Form makeNews={makeNews}></Form>
 		</div>
 	);
 }
